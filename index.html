@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MNM Labs - A New Era Awaits</title>
+  <style>
+    /* General Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Arial', sans-serif;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      color: #ffffff;
+      background-color: #222;
+    }
+
+    /* Random Polka Dot Background */
+    .background {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+    .dot {
+      position: absolute;
+      border-radius: 50%;
+      animation: colorChange 5s infinite alternate, move 20s infinite linear;
+    }
+
+    /* Random Color Animation */
+    @keyframes colorChange {
+      0% { background-color: #ff0080; }
+      25% { background-color: #ff8000; }
+      50% { background-color: #ffff00; }
+      75% { background-color: #80ff00; }
+      100% { background-color: #0080ff; }
+    }
+
+    /* Smooth Random Movement Animation */
+    @keyframes move {
+      0% { transform: translate(0, 0); }
+      100% { transform: translate(50px, 50px); }
+    }
+
+    .container {
+      text-align: center;
+      z-index: 1;
+      position: relative;
+    }
+    h1 {
+      font-size: 4rem;
+      margin-bottom: 1rem;
+      animation: fadeIn 2s ease-in-out;
+    }
+    p {
+      font-size: 1.5rem;
+      margin-bottom: 2rem;
+      animation: fadeIn 3s ease-in-out;
+    }
+    .cta {
+      padding: 15px 30px;
+      font-size: 1.2rem;
+      color: #000;
+      background-color: #ffffff;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: transform 0.3s, background-color 0.3s;
+    }
+    .cta:hover {
+      transform: scale(1.1);
+      background-color: #dddddd;
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="background">
+    <script>
+      const background = document.querySelector('.background');
+
+      // Generate random polka dots
+      const createDots = (count) => {
+        for (let i = 0; i < count; i++) {
+          const dot = document.createElement('div');
+          dot.classList.add('dot');
+          
+          // Random size, position, and animation duration
+          const size = Math.random() * 50 + 20; // Size between 20px and 70px
+          const x = Math.random() * 100; // Percentage
+          const y = Math.random() * 100; // Percentage
+          const animationDuration = Math.random() * 10 + 5; // Between 5s and 15s
+
+          dot.style.width = `${size}px`;
+          dot.style.height = `${size}px`;
+          dot.style.left = `${x}vw`;
+          dot.style.top = `${y}vh`;
+          dot.style.animationDuration = `${animationDuration}s`;
+
+          background.appendChild(dot);
+        }
+      };
+
+      // Add 150 random polka dots
+      createDots(100);
+    </script>
+  </div>
+  <div class="container">
+    <h1>Building for a more equal and happier world</h1>
+    <p>The world is about to get a whole lot brighter and colourful. Opening doors early 2025.</p>
+<!--     <a href="#!" class="cta">Stay Updated</a> -->
+  </div>
+</body>
+</html>
